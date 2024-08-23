@@ -7,13 +7,14 @@ import { defineNuxtConfig } from 'nuxt/config'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss', "@vueuse/nuxt", "@sidebase/nuxt-auth"
+    '@nuxtjs/tailwindcss', "@vueuse/nuxt"
+    // '@nuxtjs/tailwindcss', "@vueuse/nuxt", "@sidebase/nuxt-auth"
   ],
-  auth: {
-    provider: {
-        type: 'authjs'
-    }
-},
+//   auth: {
+//     provider: {
+//         type: 'authjs'
+//     }
+// },
   
   ssr: false,
 
