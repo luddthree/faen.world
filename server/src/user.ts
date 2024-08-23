@@ -19,7 +19,7 @@ interface AddOptions {
 }
 
 const pool: Pool = createPool({
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'ludvik',
   password: 'Password123#@!',
   database: 'linkbase',

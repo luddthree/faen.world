@@ -14,24 +14,27 @@ interface AddOptions {
 }
 
 const pool: Pool = createPool({
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'ludvik',
   password: 'Password123#@!',
   database: 'linkbase',
   connectionLimit: 10, // Adjust as needed
 });
 
-export async function list(userId:string) {
-  const connection: PoolConnection = await pool.getConnection();
+export async function list(userId: string): Promise<Bio[]> {
+  const connection = await pool.getConnection();
   try {
-    // @ts-ignore
-    const [ rows ]: Bio[] = await connection.query('SELECT * FROM user where id="' + userId
-    + '"');
+    const query = 'SELECT id, bio FROM user WHERE id = ?'; // Exclude sensitive fields like passwords
+    const [rows]: [Bio[]] = await connection.query(query, [userId]);
     return rows;
+  } catch (error) {
+    console.error('Error fetching user bio:', error);
+    throw new Error('Failed to fetch user bio.');
   } finally {
     connection.release();
   }
 }
+
 
 
 

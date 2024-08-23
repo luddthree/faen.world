@@ -2,7 +2,7 @@ import mysql from 'mysql2/promise';
 
 // MySQL database configuration
 const dbConfig = {
-  host: 'localhost',
+  host: '127.0.0.1',
   user: 'ludvik',
   password: 'Password123#@!',
   database: 'linkbase',
